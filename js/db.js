@@ -1,0 +1,122 @@
+export const db = [
+    {
+        name: "Ялинка штучна",
+        id: "0001",
+        weight: 10.5,
+        height: 2,
+        oldPrice: 7400,
+        newPrice: 5200,
+        img: 1,
+        amount: 1,
+        color: "green",
+        jewerly: false
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0002",
+        weight: 11,
+        height: 2,
+        oldPrice: 6300,
+        newPrice: 5100,
+        img: 2,
+        amount: 1,
+        color: "green",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0003",
+        weight: 10,
+        height: 1.8,
+        oldPrice: 6700,
+        newPrice: 3200,
+        img: 3,
+        amount: 1,
+        color: "white",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0004",
+        weight: 12,
+        height: 2,
+        oldPrice: 7900,
+        newPrice: 7600,
+        img: 4,
+        amount: 1,
+        color: "green",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0005",
+        weight: 18,
+        height: 2.5,
+        oldPrice: 7600,
+        newPrice: 6700,
+        img: 5,
+        amount: 1,
+        color: "green",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0006",
+        weight: 13,
+        height: 2.1,
+        oldPrice: 7800,
+        newPrice: 6700,
+        img: 6,
+        amount: 1,
+        color: "white",
+        jewerly: false
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0007",
+        weight: 13.5,
+        height: 2,
+        oldPrice: 7400,
+        newPrice: 6000,
+        img: 7,
+        amount: 1,
+        color: "white",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0008",
+        weight: 14,
+        height: 2.4,
+        oldPrice: 8000,
+        newPrice: 7000,
+        img: 8,
+        amount: 1,
+        color: "green",
+        jewerly: false
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0009",
+        weight: 18,
+        height: 2.3,
+        oldPrice: 8500,
+        newPrice: 7500,
+        img: 9,
+        amount: 1,
+        color: "green",
+        jewerly: true
+    },
+    {
+        name: "Ялинка штучна",
+        id: "0010",
+        weight: 15,
+        height: 2.3,
+        oldPrice: 8700,
+        newPrice: 7800,
+        img: 10,
+        amount: 1,
+        color: "green",
+        jewerly: true
+    }
+];
