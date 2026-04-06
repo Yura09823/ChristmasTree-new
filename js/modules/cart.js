@@ -2,12 +2,11 @@ export class Cart{
     constructor(data) {
         this.db = data; 
     }
-    CreateCart(){
+    CreateCart(render = this.db){
         const container = document.getElementById("catalog__content");
         let content = "";
-        for(let i = 0; i < this.db.length; i++){
-            console.log(`Рендеримо ялинку №${i}:`, this.db[i].id);
-            const tree = this.db[i];
+        for(let i = 0; i < render.length; i++){
+            const tree = render[i];
             content += `
                 <article class="catalog__item">
                     <div class="item-image__wrapper">
@@ -28,8 +27,16 @@ export class Cart{
                     </div>
                 </article>
             `;
-            container.innerHTML = content;
         }
+        container.innerHTML = content;
+        console.log('render ', render)
+    }
+    FilterByColor(color){
+        if (color === 'all') return this.db;
+        return this.db.filter(tree => tree.color === color);
+    }
+    FilterByJewerly(status){
+        return this.db.filter(tree => tree.jewerly === status);
     }
     
 }

@@ -57,7 +57,7 @@ export const db = [
         img: 5,
         amount: 1,
         color: "green",
-        jewerly: true
+        jewerly: false
     },
     {
         name: "Ялинка штучна",
