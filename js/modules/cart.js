@@ -1,6 +1,11 @@
 export class Cart{
     constructor(data) {
         this.db = data; 
+        this.state = {
+            color: 'all',
+            jewerly: 'all',
+            sort: 'cheap'
+        }
     }
     CreateCart(render = this.db){
         const container = document.getElementById("catalog__content");
@@ -37,6 +42,30 @@ export class Cart{
     }
     FilterByJewerly(status){
         return this.db.filter(tree => tree.jewerly === status);
+    }
+    FilterByPrice(option){
+        if (option === 'cheap'){
+            return this.db.sort((a, b) => b.newPrice - a.newPrice)
+        }
+        else{
+            return this.db.sort((a, b) => a.newPrice - b.newPrice)
+        } 
+    }
+    applyFilters(){
+        let result = [...this.db];
+        if (this.state.color != 'all'){
+            result = result.filter(item => item.color === this.state.color);
+        }
+
+        if (this.state.jewerly != 'all'){
+            result = result.filter(item => item.jewerly === this.state.jewerly)
+        }
+
+        result.sort((a, b) =>{
+            return this.state.sort === 'cheap' ? a.newPrice - b.newPrice : b.newPrice - a.newPrice;
+        })
+
+        this.CreateCart(result);
     }
     
 }

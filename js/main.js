@@ -4,43 +4,41 @@ import {Cart} from "./modules/cart.js"
 console.log(db)
 
 const myCard = new Cart(db);
-myCard.CreateCart();
 
+myCard.CreateCart();
 const filtersBtn = document.querySelectorAll(".filters__btn");
-const jewelryBtns = document.querySelectorAll(".filters__btn--jewerly");
 filtersBtn.forEach(btn =>{
     btn.addEventListener('click', (e)=>{
         const currentBtn = e.currentTarget;
-        const filterValue = currentBtn.dataset.filter;
 
         filtersBtn.forEach(other => other.classList.remove('filters__btn--active'));
-        jewelryBtns.forEach(other => other.classList.remove('filters__btn--active'));
         currentBtn.classList.add('filters__btn--active');
 
-        let filteredData;
-        if(filterValue === 'all'){
-            filteredData = db;
-        }
-        else{
-            filteredData = db.filter(tree => tree.color === filterValue);
-        }
-        myCard.CreateCart(filteredData);
+        myCard.state.color = currentBtn.dataset.filter;
+        myCard.applyFilters();
     })
 })
+
+const jewelryBtns = document.querySelectorAll(".filters__btn--jewerly");
 jewelryBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const currentBtn = e.currentTarget;
-        const statusStr = currentBtn.dataset.filter;
+        const status = currentBtn.dataset.filter;
         jewelryBtns.forEach(other => other.classList.remove('filters__btn--active'));
-        filtersBtn.forEach(other => other.classList.remove('filters__btn--active'));
         currentBtn.classList.add('filters__btn--active');
 
 
-        const isJewerlyNeeded = (statusStr === "true");
-        const filteredData = myCard.FilterByJewerly(isJewerlyNeeded);
-        myCard.CreateCart(filteredData);
+        myCard.state.jewerly = (status === "all") ? "all" : (status === "true");
+        myCard.applyFilters();
     });
 });
+
+const select = document.getElementById('price-sort');
+select.addEventListener('change', (e) => {
+    myCard.state.sort = e.target.value;
+    myCard.applyFilters();
+});
+
 
 
 let swiper = new Swiper(".mySwiper", {
