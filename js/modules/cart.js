@@ -4,7 +4,9 @@ export class Cart{
         this.state = {
             color: 'all',
             jewerly: 'all',
-            sort: 'cheap'
+            sort: 'cheap',
+            favorites: {},
+            cart: {}
         }
     }
     CreateCart(render = this.db){
@@ -35,21 +37,6 @@ export class Cart{
         }
         container.innerHTML = content;
         console.log('render ', render)
-    }
-    FilterByColor(color){
-        if (color === 'all') return this.db;
-        return this.db.filter(tree => tree.color === color);
-    }
-    FilterByJewerly(status){
-        return this.db.filter(tree => tree.jewerly === status);
-    }
-    FilterByPrice(option){
-        if (option === 'cheap'){
-            return this.db.sort((a, b) => b.newPrice - a.newPrice)
-        }
-        else{
-            return this.db.sort((a, b) => a.newPrice - b.newPrice)
-        } 
     }
     applyFilters(){
         let result = [...this.db];
