@@ -36,6 +36,108 @@ a{
 ul{
     list-style-type: none;
 }
+.modal__basket{
+    width: 500px;
+    height: 600px;
+    border-radius: 12px;
+    background-color: var(--color-light);
+    position: fixed;
+    top: calc(12vh + 40px);
+    right: 7.5%;
+    z-index: -1;
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    padding: 20px;
+    transition: opacity 0.6s;
+}
+.toggle{
+    z-index: 10;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+.modal__h2{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.modal__header{
+    display: flex;
+    justify-content: space-between;
+}
+.modal__close, .modal__close-item{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    background-image: url('../img/close.svg');
+    background-size: cover;
+}
+.modal__close:hover, .modal__close-item:hover{
+    cursor: pointer;
+}
+.modal__container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.modal__card{
+    width: 100%;
+    height: 70px;
+    border-radius: 12px;
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 0 30px;
+    position: relative;
+}
+.modal__first{
+    display: flex;
+    gap: 15px;
+}
+.modal__img{
+    width: 46px;
+    height: 58px;
+    border-radius: 5px;
+}
+.modal__name{
+    font-size: 18px;
+    font-weight: 600;
+}
+.modal__id{
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.modal__calc{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+.modal__button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-light);
+    font-size: 18px;
+}
+.modal__button:hover{
+    cursor: pointer;
+}
+.modal__result{
+    font-weight: 600;
+}
+.modal__price{
+    font-weight: 600;
+}
+.modal__close-item{
+    position: absolute;
+    left: -15px;
+    background-color: var(--color-light);
+    border-radius: 10px;
+}
 .dot{
     width: 10px;
     height: 10px;

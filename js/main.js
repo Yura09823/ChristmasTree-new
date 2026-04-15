@@ -20,7 +20,31 @@ city_select.addEventListener('change', (e)=>{
     document.title = `Santa Tree's | ${e.target.value}`
 })
 
+// MODAL WINDOWS START
 
+const modal__basket = document.querySelector('.modal__basket')
+const basket_open = document.getElementById('basket');
+const basket_close = document.getElementById('basket_close');
+const header = document.querySelector('.header__container');
+
+
+const toggleModalBasket = ()=>{
+    modal__basket.classList.toggle('toggle');
+
+    if (modal__basket.classList.contains('toggle')) {
+        document.body.style.overflowY = 'hidden';
+        header.style.pointerEvents = 'none';
+    } else {
+        document.body.style.overflowY = 'auto';
+        header.style.pointerEvents = 'all';
+    }
+}
+
+basket_open.addEventListener('click', toggleModalBasket)
+basket_close.addEventListener('click', toggleModalBasket)
+
+
+// MODAL WINDOWS END
 
 // CARD BUTTONS START
 const catalog__container = document.getElementById("catalog__content");
@@ -38,7 +62,7 @@ catalog__container.addEventListener("click", (e) => {
             favourites[id] = true;
             favBtn.classList.add("item__fav--active");
         }
-        console.log(favourites)
+        console.log(`fav: ${favourites[id]}`)
 
         //localStorage.setItem('user_favs', JSON.stringify(favourites));
         return; 
@@ -51,9 +75,8 @@ catalog__container.addEventListener("click", (e) => {
         cartItems[id] = true; 
         
         buyBtn.innerText = "У кошику";
-        buyBtn.classList.add("item__buy--active");
-        
-        console.log(cartItems)
+        myCard.createCartBuy();
+        console.log(`buy: ${cartItems[id]}`)
 
         //localStorage.setItem('user_buy', JSON.stringify(cartItems));
     }
@@ -105,7 +128,7 @@ let swiper = new Swiper(".mySwiper", {
     },
     loop:true,
     autoplay:{
-        delay:5000
+        delay:6000
     }
 });
 

@@ -48,7 +48,7 @@
                         <path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button type="button" class="header__button">
+                <button type="button" class="header__button" id="basket">
                     <span>Корзина</span>
                     <svg class="basket" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M21 10L15 4M21 10H3M21 10L19.6431 16.7845C19.2692 18.6542 17.6275 20 15.7208 20H8.27922C6.37249 20 4.73083 18.6542 4.35689 16.7845L3 10M3 10L9 4" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -159,6 +159,31 @@
             </div>
         </div>
     </footer>
+    <div class="modal__basket" id="modal__basket">
+        <div class="modal__header">
+            <h2 class="modal__h2">Корзина</h2>
+            <button type="button" class="modal__close" id="basket_close"></button>
+        </div>
+        <div class="modal__container">
+            <!-- <div class="modal__card">
+                <div class="modal__first">
+                    <img src="./img/1.avif" alt="Ялинка штучна" class="modal__img" id="basket_close_card">
+                    <div class="modal__title">
+                        <p class="modal__name">Ялинка штучна</p>
+                        <p class="modal__id">#0001</p>
+                    </div>
+                </div>
+                <div class="modal__calc">
+                    <div class="modal__price" id="modal__price">5200грн</div>
+                    <button type="button" class="modal__button minus">-</button>
+                    <p class="modal__result">1</p>
+                    <button type="button" class="modal__button plus">+</button>
+                </div>
+                <div class="modal__close-item"></div>
+            </div> -->
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script type="module" src="./js/main.js"></script>

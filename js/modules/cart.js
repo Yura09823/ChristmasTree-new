@@ -54,5 +54,40 @@ export class Cart{
 
         this.CreateCart(result);
     }
-    
+    createCartBuy() {
+        const container = document.querySelector('.modal__container');
+        if (!container) return; // 
+
+        let content = ``;
+        
+        // 1. Отримуємо масив ID з нашого об'єкта favorites/cart
+        // Наприклад: ["001", "005"]
+        const idsInCart = Object.keys(this.state.cart);
+
+        // 2. Фільтруємо основну базу даних, щоб отримати тільки ті ялинки, які ми купили
+        const products = this.db.filter(item => idsInCart.includes(String(item.id)));
+
+        products.forEach(item => {
+            content += `
+                <div class="modal__card">
+                    <div class="modal__first">
+                        <img src="./img/${item.img}.avif" alt="${item.name}" class="modal__img">
+                        <div class="modal__title">
+                            <p class="modal__name">${item.name}</p>
+                            <p class="modal__id">#${item.id}</p>
+                        </div>
+                    </div>
+                    <div class="modal__calc">
+                        <div class="modal__price">${item.newPrice} грн</div>
+                        <button type="button" class="modal__button minus" data-id="${item.id}">-</button>
+                        <p class="modal__result">1</p>
+                        <button type="button" class="modal__button plus" data-id="${item.id}">+</button>
+                    </div>
+                    <div class="modal__close-item" data-id="${item.id}"></div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = content;
+    }
 }
